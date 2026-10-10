@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171c39"><meta name="description" content="Una princesa, un dinosaurio travieso y una pequeña aventura hecha con cariño."><title>Una aventura para ti 💖</title><link rel="stylesheet" href="./style.css"><script src="./game.js" defer></script></head>
+<body>
+<header class="site-header"><a class="brand" href="./">✧ <span>Un pequeño cuento para ti</span></a><button id="sound" class="quiet" aria-pressed="false">♫ Efectos: sí</button></header>
+<main>
+<section id="stage" class="stage" aria-label="Una aventura para ti">
+<canvas id="world" tabindex="-1" aria-label="Jardín mágico con una princesa y un dinosaurio" role="img"></canvas>
+<div class="frame" aria-hidden="true"></div>
+<section id="cover" class="cover screen">
+<div class="eyebrow">HECHO CON CARIÑO · SOLO PARA TI</div><h1>Una aventura<br><em>para ti</em> <span>♡</span></h1>
+<p>Una princesa, un dinosaurio travieso y una sorpresa<br class="desktop"> que vale la pena descubrir…</p>
+<button id="start" class="primary">¡Vamos a la aventura! 💖 <span>→</span></button><button id="how" class="text-button">Cómo jugar <span>↗</span></button>
+<div class="cover-note">UN POQUITO DE MAGIA. MUCHOS CORAZONES.</div>
+</section>
+<button id="dino-touch" class="dino-touch" aria-label="Saludar al dinosaurio"></button>
+<div id="toast" class="toast" role="status"></div>
+<section id="intro" class="intro screen" hidden><div class="eyebrow">ÉRASE UNA VEZ…</div><h2 id="intro-text"></h2><div id="intro-dots" aria-hidden="true">● ○ ○ ○</div><button id="ready" class="primary" hidden>¡Estoy lista!</button><button id="skip" class="text-button">Saltar introducción →</button></section>
+<div id="hud" class="hud" hidden><div class="stat"><small id="player-name">PRINCESA</small><strong id="lives">♥ ♥ ♥ · 3 vidas</strong></div><div class="resistance"><small>Corazones para conquistarlo <b id="hits">0 / 8</b></small><progress id="resistance" value="8" max="8" aria-label="Resistencia del dinosaurio"></progress></div><div class="stat ammo"><small>CORAZONES</small><strong id="ammo">♡ 0</strong></div><button id="pause" class="icon-button" aria-label="Pausar">Ⅱ</button></div>
+<p id="hint" class="hint" role="status" hidden></p>
+<section id="ending" class="ending screen" hidden><div id="envelope-area"><div class="eyebrow">LA VERDADERA SORPRESA ERAS TÚ</div><h2>Hay algo que quiero decirte… 💌</h2><button id="envelope" class="envelope" aria-label="Abrir el sobre"><span class="flap"></span><span class="seal">♥</span></button><p>Toca el sobre para abrirlo</p></div><article id="letter" class="letter" hidden><div class="eyebrow">PARA <span id="recipient">PRINCESA</span>, CON CARIÑO</div><h2 id="dedication"></h2><p id="message"></p><button id="more" class="primary">Tengo algo más que decirte 💌</button><p id="invitation" class="invitation" hidden></p><p id="signature" class="signature"></p><button id="replay" class="text-button">Volver a jugar ↻</button></article></section>
+</section>
+<div id="controls" class="controls" hidden><div><button data-control="left" aria-label="Mover a la izquierda">←</button><button data-control="right" aria-label="Mover a la derecha">→</button></div><span class="keyboard-note">A / D · Mover &nbsp; Espacio · Saltar &nbsp; F · Lanzar</span><div><button data-control="jump" aria-label="Saltar">↑ <small>Saltar</small></button><button data-control="throw" class="throw" aria-label="Lanzar corazón">♡ <small>Lanzar</small></button></div></div>
+<div class="understage"><span>✧ Una pequeña aventura. Una gran sonrisa.</span><span>Sin prisa, a tu ritmo <span class="pink">♡</span></span></div>
+<section class="music" aria-labelledby="music-title"><div class="music-copy"><span class="eyebrow">LA BANDA SONORA DE ESTE CUENTO</span><h2 id="music-title">La música de esta aventura 🎵</h2><p>Algunas historias se sienten todavía más bonitas con una canción.</p><p id="music-status" class="music-status" role="status">Si la música no empieza, pulsa reproducir en el reproductor. Puedes seguir jugando sin música.</p><a id="youtube-link" target="_blank" rel="noopener noreferrer">Escuchar en YouTube ↗</a></div><div class="player-wrap"><div id="player"></div></div></section>
+</main><footer>Creado para regalar una sonrisa <span>♡</span></footer>
+<dialog id="modal"><div id="tutorial" hidden><div class="eyebrow">TU PEQUEÑA GUÍA</div><h2>La magia está en tus manos</h2><div class="steps"><div><span>↔</span><h3>Explora el jardín</h3><p>Camina con A/D o las flechas. Salta con Espacio o ↑.</p></div><div><span>♡</span><h3>Recoge corazones</h3><p>Acércate a los corazones brillantes. Siempre vuelven a aparecer.</p></div><div><span>➳</span><h3>Conquista al dinosaurio</h3><p>Lanza con F. Nosotros te ayudamos a apuntar. ¡Ocho corazones bastan!</p></div><div><span>✉</span><h3>Abre tu sorpresa</h3><p>Hay algo bonito esperándote. En el celular, usa los botones de abajo.</p></div></div><button id="close-tutorial" class="primary">¡Entendido!</button></div><div id="pause-panel" hidden><div class="eyebrow">UN RESPIRO ENTRE FLORES</div><h2 id="pause-title">Tu aventura te espera</h2><p>Todo se queda aquí, justo donde lo dejaste.</p><button id="resume" class="primary">Continuar la aventura</button></div><div id="loss" hidden><div class="eyebrow">UNA NUEVA OPORTUNIDAD</div><h2>¡Tú puedes, princesa!</h2><p>Tu sorpresa sigue esperándote. 💕</p><button id="retry" class="primary">Intentarlo otra vez</button></div></dialog>
+<noscript>Activa JavaScript para jugar esta aventura.</noscript>
+</body></html>
